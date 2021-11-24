@@ -23,6 +23,9 @@ db.sequelize.sync({force: true}).then(() => {
     initial()
 })
 
+require('./server/routes/auth-routes')(app)
+require('./server/routes/user-routes')(app)
+
 app.get('/', (req, res) => {
     res.json({message : 'Bork bork bork'})
 })
